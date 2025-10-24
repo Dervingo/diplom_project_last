@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'diplom_spo.apps.DiplomSpoConfig',
     'core.apps.CoreConfig',
-    'about.apps.AboutConfig',
     'users.apps.UsersConfig',
 ]
 

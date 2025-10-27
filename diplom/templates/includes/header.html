@@ -10,21 +10,7 @@
           <span style="color:red">Dip</span>lom
         </a>
         <ul class="nav nav-pills"> 
-          {% with request.resolver_match.view_name as view_name %} 
-          <li class="nav-item">  
-            <a class="nav-link
-            {% if view_name  == 'about:author' %} 
-            active
-            {% endif %}"
-            href="">Об авторе</a> 
-          </li> 
-          <li class="nav-item"> 
-            <a class="nav-link
-            {% if view_name == 'about:tech' %}
-            active
-            {% endif %}" 
-            href="">Технологии</a> 
-          </li> 
+          {% with request.resolver_match.view_name as view_name %}
             {% if user.is_authenticated %} 
           <li class="nav-item">  
             <a class="nav-link

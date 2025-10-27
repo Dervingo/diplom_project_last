@@ -35,30 +35,69 @@
         {% endif %}
         >
           {% csrf_token %}
-        {% for field in form %}
-          <div class="form-group row my-3"
-            {% if field.field.required %}
-            aria-required="true"
-            {% else %}
-            aria-required="false"
-            {% endif %}
-            >
-            <label for="{{ field.id_for_label }}">
-            {{ field.label }}
-              {% if field.field.required %}
-                <span class="required text-danger">*</span>
-              {% endif %}
-            </label>
-            <div>
-              {{ field|addclass:'form-control' }}
-                {% if field.help_text %}
-                <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
-                  {{ field.help_text|safe }}
-                </small>
-                {% endif %}
-            </div>
+        <div class="row">
+          <div class="col-md-6">
+            {% with field=form.org_name %}
+              {% include 'includes/field.html' %}
+            {% endwith %}
           </div>
-        {% endfor %}
+          <div class="col-md-6">
+            {% with field=form.speciality %}
+              {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            {% with field=form.qualification %}
+            {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+          <div class="col-md-4">
+            {% with field=form.ser_number %}
+            {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+          <div class="col-md-4">
+            {% with field=form.student_name %}
+              {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            {% with field=form.supervisor %}
+            {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+          <div class="col-md-4">
+            {% with field=form.reg_number %}
+            {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+          <div class="col-md-4">
+            {% with field=form.chairman %}
+            {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            {% with field=form.grant_date %}
+            {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+          <div class="col-md-4">
+            {% with field=form.year %}
+              {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+          <div class="col-md-4">
+            {% with field=form.copy %}
+              {% include 'includes/field.html' %}
+            {% endwith %}
+          </div>
+        </div>
         <div class="col-md-5 offset-md-5">
           <button type="submit" class="btn btn-primary">
             Создать документ

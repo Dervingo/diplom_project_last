@@ -46,7 +46,7 @@ def diplom_detail(request, pk):
 
 def diplom_create(request):
     if request.method == 'POST':
-        form = DiplomForm(request.POST or None, files=request.FILES or None,)
+        form = DiplomForm(request.POST, files=request.FILES,)
         if form.is_valid():
             form.save()
             return redirect(reverse('diplom_spo:index'))
